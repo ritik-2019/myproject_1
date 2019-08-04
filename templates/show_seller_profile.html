@@ -1,0 +1,25 @@
+{% extends 'master_seller.html' %}
+{% block m4 %}
+
+<h1>Profile</h1>
+
+    <h3>Name : {{ result[0] }}</h3>
+    <p>
+        Address : {{ result[1] }}<br/>
+        Contact : {{ result[2] }}<br/>
+        Email : {{ result[3] }}<br/>
+        <table border="0">
+            <tr>
+                <td>
+                    <form method="post" action="edit_seller">
+                    <input type="hidden" name="H1" value="{{ result[3] }}"/>
+                     <input type="submit" name="B1" value="Edit"/>
+                    </form>
+                </td>
+
+            </tr>
+        </table>
+    </p>
+{% endblock %}
+
+

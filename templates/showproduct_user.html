@@ -1,0 +1,60 @@
+{% extends 'master_user.html' %}
+{% block m2 %}
+
+<link href="../static/css/search_bar1.css" rel="stylesheet" type="text/css">
+
+
+<script type="text/javascript" src="../static/javascript//bootstrap_js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap_css/bootstrap.css">
+
+<form id="search-form_3">
+<input type="text" class="search_3" placeholder="Enter the Product's Name"/>
+<input type="submit" class="submit_3" value="Search Product" />
+</form>
+
+
+<div class="row" style="margin-top:20px">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+{% if result %}
+    {% for row in result %}
+        <div class="card" style="width:400px;">
+        <img src="../static/product_photos/{{ row[5] }}" width="100%" height="200px" class="card-img" />
+        <div class="card-body">
+        <h4 class="card-title">Product: {{ row[2] }}</h4>
+        <h4 class="card-title">Company : {{ row[3] }}</h4>
+        <h4 class="card-title">Price : {{ row[4] }}</h4>
+
+        <h5 class="card-text">soldby_mail : {{ row[6] }}</h5>
+
+        </div>
+
+        <form class="form-group" method="post" action="addto_cart">
+            <input type="hidden" name="H1" value="{{ row[2]}}" id="name">
+            <input type="hidden" name="H2" value="{{ row[3]}}" id="company">
+            <input type="hidden" name="H3" value="{{ row[4]}}" id="price">
+            <input type="hidden" name="H5" value="{{ row[6]}}" id="sellers_email">
+            <input type="hidden" name="H6" value="{{ row[0]}}" id="id">
+            <input type="submit" name="B1" value="Add To Cart" class="btn btn-primary"  style="width:100%;border:1px solid danger"/>
+
+        </form>
+
+        <form class="form-group" method="post" action="buy_now_direct">
+            <input type="hidden" name="A1" value="{{ row[1]}}" >
+            <input type="hidden" name="A2" value="{{ row[2]}}" >
+            <input type="hidden" name="A3" value="{{ row[3]}}" >
+            <input type="hidden" name="A5" value="{{ row[5]}}" >
+            <input type="hidden" name="A6" value="{{ row[6]}}" >
+            <input type="submit" name="B2" value="Buy Now" class="btn btn-primary" style="width:100%;border:1px solid danger"/>
+
+        </form>
+        </div>
+
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        {% endfor %}
+    {% else %}
+        <h3>no data to show</h3>
+    {% endif %}
+</div>
+{% endblock %}
+
+

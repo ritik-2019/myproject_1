@@ -1,0 +1,44 @@
+{% extends 'master_user.html' %}
+
+{% block m2 %}
+
+<script type="text/javascript" src="../static/javascript//bootstrap_js/bootstrap.js"></script>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap_css/bootstrap.css">
+<hr />
+
+{% if vgt %}
+    {{vgt}}
+{% endif %}
+<div class="row">
+{% for row in result %}
+
+<div class="box" style="border-radius:10px;border:1px solid black;height:289px;width:249px;margin-left:20px;margin-top:20px;background:orange;">
+    <h3>Name : {{ row[1] }}</h3>
+    <p> company : {{ row[2] }} </p>
+    <p> price : {{ row[3] }} </p>
+    <p> sellers_email: {{ row[5] }}</p>
+    <div class="footer">
+    <form id="buy" method="post" action="buy_now">
+        <input type="hidden" name="A1" value="{{ row[0]}}" id="id_" >
+        <input type="hidden" name="A2" value="{{ row[1]}}"  id="name">
+        <input type="hidden" name="A3" value="{{ row[2]}}" id="company">
+        <input type="hidden" name="A4" value="{{ row[3]}}"  id="price">
+        <input type="hidden" name="A5" value="{{ row[4]}}" id="sold_to">
+         <input type="hidden" name="A6" value="{{ row[5]}}" id="retailers_email">
+        <input class="btn btn-primary" type="submit" name="B2" value="Buy Now" style="width:100%;border-radius:10px;"/>
+
+    </form>
+
+    <form method="post" action="delete_cart">
+        <input type="hidden" name="R1" value="{{ row[0]}}" id="id" >
+
+        <input type="submit" class="btn btn-primary" name="B1" style="width:100%;border-radius:10px;" value="Remove From Cart" />
+
+    </form>
+        </div>
+</div>
+    {% endfor %}
+</div>
+    <hr/>
+
+{% endblock %}

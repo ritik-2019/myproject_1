@@ -1,0 +1,23 @@
+{% extends 'master.html' %}
+{% block m1 %}
+
+
+{% for row in result %}
+
+<div id="pro">
+<hr />
+    <img alt="No Photo" src="../static/product_photos/{{ row[4] }}" width="200" height="100" />
+
+    <h3>{{ row[1] }}</h3>
+    <h3> Company : {{ row[2] }}</h3>
+
+    <h4>Department : {{ row[0] }}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="login">Login here to buy the product</a></h4>
+
+    <p> rate : {{ row[3] }}
+    <hr/>
+</div>
+    {% endfor %}
+
+    {% endblock %}

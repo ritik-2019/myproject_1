@@ -1,0 +1,47 @@
+{% extends 'master_seller.html' %}
+{% block m4 %}
+
+
+<form action="add_product" method="post" enctype="multipart/form-data" name="form1">
+  <p>Select the Category
+    <label for="T1"></label>
+    <select name="T1" id="T1">
+      <option>Households</option>
+      <option>Lifestyle</option>
+      <option>Music </option>
+      <option>Technology</option>
+      <option>Daily Use</option>
+      <option>Sports</option>
+      <option>Books</option>
+    </select>
+  </p>
+  <p>Product Name
+    <label for="T2"></label>
+    <input type="text" name="T2" id="T2">
+  </p>
+  <p>Company
+    <input type="text" name="T3" id="T3">
+</p>
+  <p>Rate(per unit)
+    <input type="text" name="T4" id="T4">
+</p>
+  <p>Add an Image of the Product
+    <label for="T5"></label>
+    <input type="file" name="F1" id="T5">
+  </p>
+  <p>
+    <input type="submit" name="B1" id="B1" value="Add Product">
+  </p>
+</form>
+
+ {% if msg %}
+        <h2>{{ msg }}</h2>
+    {% endif %}
+
+  {% if msg=="Your Product Has Been Added" %}
+        <h2><a href="add_product">Add Another Product</a></h2>
+
+    {% endif %}
+
+
+{% endblock%}

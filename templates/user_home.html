@@ -1,0 +1,25 @@
+{% extends 'master_user.html' %}
+
+{% block m2 %}
+<style>
+    #img1
+    {
+     margin-top:0px;
+     width:300px;
+     height:150px;
+     float:left;
+     border:1px solid black;}
+
+</style>
+<h1>Hi <u>{{ name }}</u>  </h1>
+{% if photo=='no' %}
+    <p  ><a href="userphoto">Upload Photo</a></p>
+{% else %}
+    <img id="img1" src="../static/photos/{{ photo }}" width="300" height="150"  />
+    <br/>
+    <p><a href="change_userphoto">Change Photo</a></p>
+{% endif %}
+
+
+
+{% endblock %}

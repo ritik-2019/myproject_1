@@ -1,0 +1,13 @@
+{% extends 'master_user.html' %}
+
+{% block m2 %}
+
+<script>
+{% if data %}
+    alert("{{data}}");
+    location.href='show_cart';
+
+{% endif %}
+</script>
+
+{% endblock %}

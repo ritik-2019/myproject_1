@@ -1,0 +1,78 @@
+{% extends 'master_seller.html' %}
+
+{% block m4 %}
+
+
+{% if vgt %}
+    {{vgt}}
+{% endif %}
+<center>
+    {% for a in result %}
+    <script>
+
+        function add(){
+        var a=parseInt(document.a[3]);
+        var b=b+a;
+        document.getElementById("answer2").value=b;
+        }
+
+        function count(){
+        i=i+1;
+        document.getElementById("answer1").value=i;
+        }
+    {% endfor %}
+    </script>
+
+
+
+
+
+
+
+{% for row in result %}
+<form>
+<table cell padding="20" border="1" witdh="100%">
+<tr style="width:100%">
+	<th>Name of product</th>
+
+	<th>Price</th>
+
+    <th>Buyers_name</th>
+
+    <th>buyers_email</th>
+</tr>
+<tr>
+	<td>{{ row[1] }}</td>
+
+	<td id="price">{{ row[3] }}</td>
+
+    <td>{{ row[4]}}</td>
+
+    <td>{{ row[5] }}</td>
+</tr>
+</table>
+</form>
+    </center>
+{% endfor %}
+
+<form>
+
+    <table>
+    <tr>
+    <th>total products sold:</th>
+        <th>net profit:</th>
+    </tr>
+
+    <tr>
+        <td><button onclick="count()">count</button>
+        <input  id="answer1"></td>
+        <td><button onclick="add()" >total</button>
+        <input id="answer2"></td>
+    </tr>
+    </table>
+</form>
+
+
+
+
+{% endblock %}

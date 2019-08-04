@@ -1,0 +1,16 @@
+{% extends 'master_user.html' %}
+
+{% block m2 %}
+<script>
+{% if msg %}
+    alert("{{msg}}");
+    location.href = 'show_product_user';
+{% endif %}
+</script>
+
+
+
+
+
+
+{% endblock %}
